@@ -1,17 +1,12 @@
-import { Link } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function DetailsScreen() {
+  const { id } = useLocalSearchParams();
+
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
-      <Link
-        href={{
-          pathname: '/details/[id]',
-          params: { id: 'bacon' },
-        }}>
-        View user details
-      </Link>
+      <Text>Details of user {id} </Text>
     </View>
   );
 }
